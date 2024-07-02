@@ -1,0 +1,390 @@
+.box1{
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 10px;
+}
+.box1 img{
+  width: 598px;
+  margin-left: 32.5px;
+}
+.spangray{
+  color: gray;
+}
+.btnsize{
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 50px;
+  padding: 10px;
+}
+.Blue{
+  border: 1px solid black;
+  border-radius: 22px;
+  height: 50px;
+  padding: 10px;
+}
+.promo-button {
+  background-color: rgb(125, 206, 125);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1rem;
+  width: 440px;
+  height: 60px;
+  font-weight: bold;
+}
+.promo-button:hover{
+  color: rgb(125, 206, 125);
+  background-color:white;
+  border: 1px solid rgb(125, 206, 125);
+}
+div.box2{
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  width: 341.5px;
+}
+.box2 img{
+  width: 320px;
+  height: 321px;
+}
+/*  */
+div.fixed {
+  position: fixed;
+  top: 0;
+  width: 47%;
+  /* z-index: 1000; */
+  margin-left: 698px;
+}
+
+div.absolute {
+  position: absolute;
+  top: 0px; /* این مقدار باید همان مقدار maxScrollHeight باشد */
+  margin-left: 698px;
+}
+/*  */
+div.boxgreen{
+  background-color: rgb(125, 206, 125);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 24px;
+  margin-left: 190px;
+}
+.boxdark{
+  background-color: black;
+}
+/*  */
+.number{
+  font-weight: bolder;
+  font-size: 180px;
+}
+p.textpading{
+  padding: 0 270px;
+}
+/*  */
+.testimonials-container {
+  width: 96%;
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow-x:scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+div.testimonials > div {
+  scroll-snap-align: start;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  margin: 0 10px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+div.progress-bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 2px;
+  margin-top: 20px;
+  position: relative;
+}
+
+div.progress-bar {
+  background-color: black;
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease-in-out;
+}
+
+.imgbox {
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 0 0;
+  height: 484px; 
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+  overflow: hidden;
+}
+.box img {
+  transition: opacity 0.3s ease-in-out;
+}
+.box .hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+button.button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+  padding: 10px 15px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(125, 206, 125);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.box:hover .button {
+  display: block;
+}
+
+.box:hover .hover-image {
+  opacity: 1;
+}
+.box img.imgcart {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.highlited0{
+  font-weight: bolder;
+}
+.highlited1{
+  color: gray;
+}
+.text-center1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; /* فاصله از باکس عکس */
+}
+
+.text-center1 p {
+  margin: 0;
+}
+/*  */
+.overlay {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  right: -50px;
+  bottom: -2920px;
+}
+
+.overlay p.lead {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+
+.overlay p.quote {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+/*  */
+button.video-play-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.circle-background {
+  position: absolute;
+  width: 100px;
+  right: -10px;
+  top: -10px;
+  height: 100px;
+  background-color: #ffffff81;
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.icon-play-button {
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+/*  */
+#image{
+  width: 100%;
+  height: 716px;
+  filter: brightness(70%);
+}
+.fonte1{
+  font-size: 62px;
+  font-weight: bolder;
+}
+/*  */
+.khorshi{
+  border-radius: 30px;
+}
+/*  */
+.div-purple{
+  background-color: pink;
+  align-items: center;
+  justify-content: center;
+  height: 333px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+.johnylast{
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+  font-weight: bolder;
+  font-size: 190px;
+  padding-top: 220px;
+  white-space: nowrap;
+  overflow: visible;
+  position:absolute;
+}
+.row-last{
+  overflow: visible;
+  white-space: nowrap;
+}
+.marquee-content1{
+  display: flex;
+  gap: 200px;
+  animation: marquee1 15s linear infinite;
+}
+
+.marquee-text1 {
+  display: inline-block;
+}
+
+@keyframes marquee1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+/* Resposive */
+.display{
+  display: none;
+}
+@media (max-width: 1429px) {
+  .display2{
+    display: none;
+  }
+  .display{
+    display:block;
+  }
+  .overlay {
+    left: 190px;
+    bottom: -3330px;
+    position: absolute;
+  }
+  .fonte1{
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 1170px) and (max-width: 1400px) {
+  .overlay {
+    left: 190px;
+    bottom: -2830px;
+    position: absolute;
+  }
+}
+@media only screen and (min-width: 770px) and (max-width: 1000px) {
+  .overlay {
+    left: 190px;
+    bottom: -2630px;
+    position: absolute;
+  }
+}
+@media (max-width: 420px) {
+  .overlay {
+    left: 190px;
+    bottom: -3430px;
+    position: absolute;
+  }
+}
+@media (max-width: 1000px) {
+  p.textpading{
+    padding: 0 0;
+  }
+  .boxgreen {
+    display: flex;
+    justify-content: center;
+  }
+
+  .number {
+    font-size: calc(26px + (60 - 26) * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  .col-md-6 {
+    width: 100%;
+  }
+
+  .text-center1 {
+    text-align: center;
+  }
+}
+
+/* استایل‌های مربوط به fixed و absolute */
+/* div.fixed {
+  position: fixed ;
+  top: 0;
+}
+
+div.absolute {
+  position: absolute ;
+  top: 1880px ; مقدار بالا را بر اساس نیاز تغییر دهید
+} */

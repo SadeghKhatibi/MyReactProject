@@ -1,0 +1,167 @@
+nav.navbar {
+  position: fixed;
+  top: 48.4px;
+  width: 100%;
+  z-index: 1000;
+  background-color: black;
+  transition: top 0.3s ease-in-out , background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+nav.fixed-top{
+  top: 0px;
+}
+
+nav.hidden {
+  transform: translateY(-100%);
+}
+
+.pavl{
+  background-color: rgb(125, 206, 125);
+  height: 48.4px;
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-item .nav-link {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav-item .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.dropdown-menu {
+  text-transform: capitalize;
+}
+
+
+.fa {
+  font-size: 18px;
+}
+
+
+.badge {
+  background-color:rgb(125, 206, 125);
+}
+/*  */
+/* CSS سفارشی برای mega menu */
+.collapse div.mega-menu {
+  width: 100vw;
+  height: 403px;
+  left: -423.6px;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+}
+.collapse div.mega-menu1{
+  width: 100vw;
+  height: 403px;
+  left: -333.8px;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+}
+.collapse div.mega-menu2{
+  width: 100vw;
+  height: 403px;
+  left: -523px;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+}
+.collapse div.mega-menu3{
+  width: 100vw;
+  height: 403px;
+  left: -671.8px;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+}
+.collapse div.mega-menu4{
+  width: 100vw;
+  height: 403px;
+  left: -867.8px;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+}
+.navbar-nav li.faseleicon{
+  margin-left: 200px;
+}
+.imgboxfirst{
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 352px; 
+  width: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-menu .card {
+  border: none;
+}
+
+
+.mega-menu .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+
+.mega-menu {
+  text-align: center;
+  margin-top: 20px;
+}
+.mega-menu-text1{
+  color: gray;
+  text-decoration: none;
+}
+.mega-menu-text1:hover{
+  color: black;
+}
+/*  */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+  background-color: rgb(125, 206, 125);
+}
+
+.marquee-content{
+  display: flex;
+  gap: 200px;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-text {
+  display: inline-block;
+  margin-top: 11px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

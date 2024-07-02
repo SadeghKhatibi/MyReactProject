@@ -1,0 +1,303 @@
+.promo-imageshop {
+  border-radius: 10px;
+}
+.imgboxshop {
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 484px; 
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pimagedetail{
+  font-weight:bolder;
+  font-size: 15px;
+}
+.box img.imgcart {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.favorites-headingshop{
+  font-size: 1rem;
+  font-weight: lighter;
+}
+.view-all-link{
+  text-decoration: none;
+  color: #000;
+  font-weight:bold;
+  font-size: 1rem;
+}
+.btn-circleshop{
+  color: #000;
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  font-size: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+  left: 135px;
+  bottom: 22px;
+}
+
+/*  */
+.modal-header {
+  border-bottom: none;
+}
+
+
+.modal-header .close {
+  margin-top: -1.5rem;
+}
+
+
+.modal-body {
+  padding: 2rem;
+}
+
+
+.form-check {
+  margin-bottom: 1rem;
+}
+
+
+.btn-success {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+
+.modal-content {
+  border-radius: 10px;
+}
+
+
+.modal-header {
+  padding-bottom: 0;
+}
+
+
+.modal-title {
+  font-weight: bold;
+}
+
+
+.close {
+  font-size: 1.5rem;
+}
+
+
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.divapp{
+  margin-top: 80px;
+}
+
+.dropdown-menu a.a-dropdown{
+  color: gray;
+}
+.dropdown-menu a.a-dropdown:hover{
+  color: #000;
+}
+
+/*  */
+.testimonials-containershop{
+  width: 96%;
+  overflow: hidden;
+  position: relative;
+}
+.testimonialsshop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* چهار ستون در هر ردیف */
+  transition: transform 0.5s ease-in-out;
+}
+/*  */
+.box img {
+  transition: opacity 0.3s ease-in-out;
+}
+.imgboxshop{
+  position: relative;
+}
+
+.box .hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.box:hover .hover-image {
+  opacity: 1;
+}
+
+button.button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+  padding: 10px 15px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(125, 206, 125);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.box:hover .button {
+  display: block;
+}
+/*  */
+.imgboxshop {
+  border: 4px solid black;
+  border-radius: 25px;
+  padding: 0 0;
+  height: 484px; 
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+  overflow: hidden;
+}
+
+.box img.imgcart {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.highlited0{
+  font-weight: bolder;
+}
+.highlited1{
+  color: gray;
+}
+.text-centershop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 40px; /* فاصله از باکس عکس */
+}
+
+.text-centershop p {
+  margin: 0;
+}
+@media only screen and (min-width: 1200px) and (max-width: 1480px) {
+  .imgboxshop {
+    height: 414px; 
+    width:255px;
+  }
+  .text-centershop {
+    margin-right: 55px; /* فاصله از باکس عکس */
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    margin-left: 50px;
+  }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1225px) {
+  .imgboxshop {
+    height: 464px; 
+    width:255px;
+  }
+  .text-centershop {
+    margin-right: 55px; /* فاصله از باکس عکس */
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    margin-left: 50px;
+  }
+}
+@media only screen and (min-width: 840px) and (max-width: 1000px) {
+  .imgboxshop {
+    height: 484px; 
+    width:325px;
+  }
+  .text-centershop {
+    margin-right: 55px; /* فاصله از باکس عکس */
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    margin-left: 50px;
+  }
+}
+@media only screen and (min-width: 745px) and (max-width: 840px) {
+  .imgboxshop {
+    height: 454px; 
+    width:325px;
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+@media only screen and (min-width: 535px) and (max-width: 745px) {
+  .imgboxshop {
+    height: 234px; 
+    width:205px;
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .text-centershop {
+    margin-right: 55px; /* فاصله از باکس عکس */
+  }
+}
+@media only screen and (min-width: 535px) and (max-width: 594px) {
+  .imgboxshop {
+    height: 190px; 
+    width:145px;
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .text-centershop {
+    margin-right: 75px; /* فاصله از باکس عکس */
+  }
+}
+@media (max-width: 535px) {
+  .imgboxshop {
+    height: 280px; 
+    width:155px;
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .text-centershop {
+    margin-right: 55px; /* فاصله از باکس عکس */
+  }
+}
+@media (max-width: 425px) {
+  .imgboxshop {
+    height: 204px; 
+    width:125px;
+  }
+  .testimonialsshop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
