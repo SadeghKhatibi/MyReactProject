@@ -98,8 +98,19 @@ div.divblack{
 }
 
 /* Responsive styles */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .button1{
+    display: none;
+  }
+  .button2{
+    display: none;
+  }
+  .button3{
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  /* .button1{
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -117,7 +128,7 @@ div.divblack{
     left: 184px;
     bottom: 390px;
     position: relative;
-  }
+  } */
   .row-last p {
       font-size: 4vw;
       margin: 0 auto;
@@ -169,15 +180,12 @@ div.divblack{
       width: 98%;
       margin: 1%;
   }
-  div.promo-textabout{
-    width: 400px !important;
-  }
+  
   img.promo-imageabout2{
     width: 800px;
   }
 }
 
-/* Additional responsive styles for widths between 460px and 768px */
 @media (max-width: 768px) and (min-width: 460px) {
   .col-md-4:nth-child(1), .col-md-4:nth-child(2) {
       width: 48%;

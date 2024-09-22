@@ -1,4 +1,4 @@
-.overlay {
+.overlayhome {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -6,20 +6,24 @@
   color: #fff;
   text-align: center;
 }
+.farsi-text {
+  direction: rtl;
+  text-align: right;
+}
 
-.overlay p.lead {
+
+.overlayhome p.leadhome {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
 
-
-.overlay p.quote {
+.overlayhome p.quote {
   font-size: 1.2rem;
   margin-top: 1rem;
   font-style: italic;
 }
 
-.overlay button.video-play-button{
+.overlayhome button.video-play-button{
   width: 80px;
   height: 80px;
   border: none;
@@ -30,7 +34,7 @@
   height: 716px;
   filter: brightness(70%);
 }
-.fonte1{
+.fonte1home{
   font-size: 62px;
   font-weight: bolder;
 }
@@ -108,16 +112,16 @@ button.btn {
 }
 
 button.sadegh-button{
-  background-color: rgb(125, 206, 125);
+  background-color: rgb(125, 206, 125) !important;
   border: none;
   border-radius: 50px;
   margin-top: 20px;
   font-size: 0.8rem;
   font-weight: bold;
-  z-index: 5;
+  z-index: 5 !important;
   bottom: 20px;
-  right: 20px;
-  position:fixed;
+  left: 1320px;
+  position:fixed !important;
 }
 
 .promo-image {
@@ -152,7 +156,7 @@ div.cardnazar{
   position: relative;
 }
 
-.box div.overlay {
+.box div.overlayhome {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -409,22 +413,22 @@ div.testimonials > div {
 }
 
 button.button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  display: none;
-  padding: 10px 15px;
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  display: none !important;
+  padding: 10px 15px !important;
   color: black;
-  border: none;
-  cursor: pointer;
-  background-color: rgb(125, 206, 125);
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  border: none !important;
+  cursor: pointer !important;
+  background-color: rgb(125, 206, 125) !important;
+  border-radius: 50px !important;
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
 }
 
 .box:hover .button {
-  display: block;
+  display: block !important;
 }
 /*  */
 .imgbox {
@@ -455,36 +459,11 @@ button.button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px; /* فاصله از باکس عکس */
+  margin-top: 10px; 
 }
 
 .text-center1 p {
   margin: 0;
-}
-.messageBox{
-  position:fixed;
-  top: 100px;
-  right: 20px;
-  padding: 10px;
-  background-color: lightblue;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  z-index: 20;
-}
-.messageBox p{
-  direction: rtl !important;
-}
-.closeButton{
-  margin-left: 1400px;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  z-index: 20;
 }
 /* RESPOSIVE */
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -514,9 +493,14 @@ button.button {
     height: 477px; 
     width: 400px;
   }
+  button.sadegh-button{
+    left: 900px !important;
+  }
 }
 @media (max-width: 1000px) {
-  /* تنظیم تصویر اصلی */
+  .overlayhome {
+    margin-top: 40px;
+  }
   #image {
     width: 100%;
   }
@@ -587,7 +571,7 @@ button.button {
 
   div.imgboxlast{
     height: 200px;
-    margin-left: 125px;
+    margin-left: 10px;
     width: 200px;
   }
   
@@ -637,8 +621,14 @@ button.button {
   .row {
     margin: 0;
   }
+  button.sadegh-button{
+    left: 850px !important;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1000px) {
+  .overlayhome {
+    margin-top: 60px;
+  }
   .btn-circle-last2{
     bottom: 480px;
     left: 140px;
@@ -650,10 +640,16 @@ button.button {
   .pimagedetail , .pimagedetail1{
     margin-left: 100px;
   }
+  button.sadegh-button{
+    left: 650px !important;
+  }
 }
 /*  */
 
 @media (max-width: 699px) {
+  .overlayhome {
+    margin-top: 80px;
+  }
   /* تنظیم تصویر اصلی */
   #image {
     width: 100%;
@@ -725,7 +721,7 @@ button.button {
 
   div.imgboxlast{
     height: 200px;
-    margin-left: 125px;
+    margin-left: 10px;
     width: 200px;
   }
   
@@ -775,6 +771,9 @@ button.button {
   .row {
     margin: 0;
   }
+  button.sadegh-button{
+    left: 450px !important;
+  }
 }
 /*  */
 @media (max-width: 420px) {
@@ -785,7 +784,7 @@ button.button {
     width: 460px;
   }
   
-  .overlay{
+  .overlayhome{
     padding-left: 32px;
   }
   #image {
@@ -908,7 +907,7 @@ div.container2{
   }
  div.imgboxlast{
   height: 200px;
-  margin-left: 115px;
+  margin-left: 10px;
   width: 200px;
 }
 .pimagedetail{
@@ -936,7 +935,8 @@ p.johnylast{
   bottom: 240px;
   left: 180px;
 }
-.sadegh-button{
+button.sadegh-button{
+  left: 250px !important;
   margin-right: 85px;
 }
 }

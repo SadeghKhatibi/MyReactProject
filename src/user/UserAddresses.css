@@ -1,0 +1,98 @@
+/* UserAddresses.css */
+.user-addresses-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbaradres {
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 0 !important; 
+  padding-top: 100px !important;
+
+}
+
+.navbar-brandadres {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-linkadres {
+  font-size: 1rem;
+}
+
+.nav-linkadres.active {
+  font-weight: bold;
+}
+
+.content-containeradres {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px; 
+}
+
+.addresses {
+  text-align: center;
+}
+
+.addresses h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* .badge-success {
+  background-color: #66e2c5;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+} */
+
+.address-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.address-card h5 {
+  margin-bottom: 0.5rem;
+}
+
+.address-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.address-actions {
+  margin-top: 1rem;
+}
+
+.address-actions a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.address-actions a:hover {
+  text-decoration: underline;
+}
+
+.promo-success {
+  background-color: #66e2c5 !important;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.setareh{
+  color: tomato;
+}

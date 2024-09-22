@@ -29,8 +29,8 @@ const Collaborate = () =>{
     };
   }, []);
   const startScroll = 505;
-  const maxWidth = 1469; // maximum width of the box
-  const maxHeight = 1442; // maximum height of the box
+  const maxWidth = 1469;
+  const maxHeight = 1442; 
   const minWidth = 400;
   const minHeight = 150;
   const isScrolled = scrollY > startScroll;
@@ -140,7 +140,6 @@ const Collaborate = () =>{
         ''
       ]
     }
-    // ادامه لیست محتواها
   ];
 
   const handleNext = () => {
@@ -160,20 +159,20 @@ const Collaborate = () =>{
       <Mynav/>
       <div className="container-fluid py-5 text-center">
         <div className='row justify-content-center align-items-center mb-5 pb-5 row-last'>
-          <p className="align-items-center johnylast">356+ SPEAKING ENGAGEMENTS</p>
+          <p className="align-items-center johnylastcollab">356+ SPEAKING ENGAGEMENTS</p>
         </div>
       </div>
       {/*  */}
       <div className="sadegh-container mb-5 pb-5">
       <div
-        className="sadegh-box mb-5 pb-5"
+        className="sadegh-boxcollab mb-5 pb-5"
         style={{
           width: `${boxWidth}px`,
           height: `${boxHeight}px`,
         }}
       >
         <h1
-          className="sadegh-text"
+          className="sadegh-textcollab"
           style={{
             color: getColor(),
           }}
@@ -185,12 +184,12 @@ const Collaborate = () =>{
       </div>
       <br />
       {/*  */}
-      <div className="container-fluid family-container pt-5 mt-5 pb-5 mb-5 ">
+      <div className="container-fluid family-containercollab pt-5 mt-5 pb-5 mb-5 ">
         <div className='row text-center my-5 py-5'>
           <p className='fw-bolder fs-3'>Featured Past Projects</p>
         </div>
       {contents.map((content, index) => (
-        <div key={index} className={`family-content ${index === currentIndex ? 'active' : ''}`}>
+        <div key={index} className={`family-contentcollab ${index === currentIndex ? 'active' : ''}`}>
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center align-items-center family-imagediv">
               <img src={content.image} className="family-image me-5" alt={`content ${index + 1}`} />
@@ -208,22 +207,22 @@ const Collaborate = () =>{
       ))}
       <div className="family-navigation">
         {Array.from({ length: totalContainers }, (_, index) => (
-          <div key={index} className={`nav-circle ${index === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(index)}></div>
+          <div key={index} className={`nav-circlecollab ${index === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(index)}></div>
         ))}
       </div>
-      <div className="family-controls mb-5 pb-5">
-        <button className="btn-circle" onClick={handlePrev}><FontAwesomeIcon icon={faChevronLeft}/></button>
-        <button className="btn-circle" onClick={handleNext}><FontAwesomeIcon icon={faChevronRight}/></button>
+      <div className="family-controls mb-5 pb-5 me-1">
+        <button className="btn-circlecollab" onClick={handlePrev}><FontAwesomeIcon icon={faChevronLeft}/></button>
+        <button className="btn-circlecollab" onClick={handleNext}><FontAwesomeIcon icon={faChevronRight}/></button>
       </div>
     </div>
     {/*  */}
     <div className="container promotion-container pt-5 pb-5 mb-5">
             <div className="row">
             <div className="col-md-6 width">
-                    <img src={img11} alt="Promotion" className="promo-image" />
+                    <img src={img11} alt="Promotion" className="promo-imagecollab" />
                 </div>
-                <div className="col-md-6 d-flex heigh flex-column promo-text pt-3">
-                    <h1 className="promo-heading py-5 px-5">CORPORATE GIFTING</h1>
+                <div className="col-md-6 d-flex heigh flex-column promo-textcollab pt-3">
+                    <h1 className="promo-headingcollab py-5 px-5">CORPORATE GIFTING</h1>
                     <p className='px-5 fs-5'>Most corporate gifting is predictable, outdated, and generic. Let's change that by thanking the people you appreciate with a unique gift! As a t-shirt brand that specializes in creating unique experiences, Johnny Cupcakes collaborates with organizations, meeting planners, and events to develop, design, and manufacture one-of-a-kind apparel for their customers, clients, and employees. We handle all aspects of the project until it’s delivered to your door! Our special pastry-box packaging is available as well! </p>
                     <p className='px-5 fs-5'>100 T-shirts is the minimum order for custom tees with an 8 week turnaround upon design approval. 50 T-shirts is the minimum order for a mix of non-custom, discounted, existing tees from our inventory with a 6 day turnaround. Due to high demand, we cannot accept every request.</p>
                 </div>
@@ -234,7 +233,7 @@ const Collaborate = () =>{
       <div className="row">
         <div className='col-md-6 pe-5'>
           <p className='fs-3'>Chat with us today!</p>
-          <p className='lasttext'>TREAT YOUR EMPLOYEES TO SOMETHING SWEET!</p>
+          <p className='lasttextcollab'>TREAT YOUR EMPLOYEES TO SOMETHING SWEET!</p>
         </div>
         <div className="col-md-6 ps-5">
           <div className='container'>

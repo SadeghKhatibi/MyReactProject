@@ -57,8 +57,8 @@ const Bookjohny = () =>{
     };
   }, []);
   const startScroll = 505;
-  const maxWidth = 1469; // maximum width of the box
-  const maxHeight = 1442; // maximum height of the box
+  const maxWidth = 1469;
+  const maxHeight = 1442; 
   const minWidth = 400;
   const minHeight = 150;
   const isScrolled = scrollY > startScroll;
@@ -80,7 +80,6 @@ const Bookjohny = () =>{
     [img16, img17],
     [img18, img19],
     [ img20, img21 ],
-    // Add more spreads as needed
   ];
 
   const handleNextPage = () => {
@@ -90,7 +89,7 @@ const Bookjohny = () =>{
       setTimeout(() => {
         setCurrentPage(currentPage + 1);
         setIsFlipping(false);
-      }, 1000); // duration should match the CSS transition duration
+      }, 1000); 
     }
   };
 
@@ -101,7 +100,7 @@ const Bookjohny = () =>{
       setTimeout(() => {
         setCurrentPage(currentPage - 1);
         setIsFlipping(false);
-      }, 1000); // duration should match the CSS transition duration
+      }, 1000); 
     }
   };
 return(

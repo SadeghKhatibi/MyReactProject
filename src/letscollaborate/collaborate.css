@@ -1,8 +1,8 @@
-.johnylast{
+.johnylastcollab{
   -webkit-text-stroke: 1px black;
   color: transparent;
   font-weight: bolder;
-  font-size: 160px;
+  font-size: 90px;
   line-height: 0.9;
   padding-top: 100px;
   padding-bottom: 0;
@@ -17,8 +17,8 @@
   align-items: center;
 }
 
-.sadegh-box {
-  background-image: url('../image/khodeshbamarof.webp'); /* Ensure the correct path */
+.sadegh-boxcollab {
+  background-image: url('../image/khodeshbamarof.webp'); 
   background-size: cover;
   background-position: center;
   display: flex;
@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 
-.sadegh-text {
+.sadegh-textcollab {
   font-weight: bold;
   transition: color 0.3s ease, opacity 0.3s ease;
   position: absolute;
@@ -38,7 +38,7 @@
   font-weight: bolder;
 }
 /*  */
-.family-container {
+.family-containercollab {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -47,13 +47,13 @@
   background-color: #fff;
 }
 
-.family-content {
+.family-contentcollab {
   display: none;
   width: 100%;
   transition: all 0.3s ease-in-out;
 }
 
-.family-content.active {
+.family-contentcollab.active {
   display: flex;
 }
 
@@ -76,7 +76,7 @@
   margin-top: 20px;
 }
 
-.nav-circle {
+.nav-circlecollab {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -86,7 +86,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.nav-circle.active {
+.nav-circlecollab.active {
   background-color: #000;
 }
 
@@ -96,7 +96,7 @@
   width: 200px;
   margin-top: 20px;
 }
-
+/* 
 .highlited0{
   font-size: 30px;
   font-weight:bolder;
@@ -106,9 +106,9 @@
   font-size: 40.7px;
   font-weight: bolder;
   line-height: 0.75;
-}
+} */
 
-.btn-circle{
+.btn-circlecollab{
   color: #000;
   background-color: #fff;
   border: 1px solid gray;
@@ -123,7 +123,7 @@
   position: relative;
 }
 /*  */
-.promo-text {
+.promo-textcollab {
   background-color: #000;
   color: #fff;
   padding: 20px;
@@ -131,18 +131,18 @@
 }
 
 
-.promo-heading {
+.promo-headingcollab {
   font-size: 39px;
   font-weight: bolder;
 }
-.promo-image {
+.promo-imagecollab {
   border-radius: 10px;
   height: 675px;
   width: 612px;
 }
 
 /*  */
-.lasttext{
+.lasttextcollab{
   font-size: 45px;
   font-weight: bolder;
 }
@@ -156,23 +156,29 @@ button.promo-button {
   font-weight: bold;
 }
 /*  */
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  div.family-containercollab {
+    margin-top: 280px !important;
+    margin-bottom: 290px !important;
+  }
+}
 @media (max-width: 1000px) {
   div.sadegh-container{
     height: 300px;
     padding-top: 0;
     margin-top: 80px;
   }
-  div.sadegh-box {
+  div.sadegh-boxcollab {
       width: 100vw !important;
       height: 500px !important;
       margin: 0 auto;
   }
 
-  .sadegh-text p {
+  .sadegh-textcollab p {
       margin: 10px 0;
   }
 
-  img.promo-image {
+  img.promo-imagecollab {
       margin-top: 70px;
       margin-bottom: 100px;
       width: 100%;
@@ -183,9 +189,9 @@ button.promo-button {
     margin-bottom: 20px;
   }
 
-  div.family-container {
-      padding-top: 680px !important;
-      padding-bottom: 20px;
+  div.family-containercollab {
+    padding-top: 750px !important;
+    padding-bottom: 230px !important;
   }
 
   div.family-imagediv {
@@ -213,7 +219,7 @@ button.promo-button {
       padding-right: 0;
   }
 
-  .nav-circle {
+  .nav-circlecollab {
       width: 10px;
       height: 10px;
       margin: 5px;
@@ -225,11 +231,16 @@ button.promo-button {
     height: 675px;
     /* margin-top: 70px !important; */
   }
-  .promo-image{
+  .promo-imagecollab{
     width: 450px;
   }
   .heigh p{
     font-size: 16px !important;
+  }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  p.johnylastcollab{
+    font-size: 50px !important;
   }
 }
 @media only screen and (min-width: 770px) and (max-width: 1000px) {
@@ -237,7 +248,7 @@ button.promo-button {
   height: 675px;
   margin-top: 70px !important;
 }
-.promo-heading{
+.promo-headingcollab{
   font-size: 23px;
 }
 .heigh p{
@@ -245,29 +256,29 @@ button.promo-button {
 }
 }
 @media (max-width: 770px) {
-  p.johnylast{
-    font-size: 80px;
+  p.johnylastcollab{
+    font-size: 40px !important;
   }
   div.sadegh-container {
     height: 120vh !important;
   }
 }
 @media (max-width: 620px) {
-  p.johnylast{
-    font-size: 50px !important;
+  p.johnylastcollab{
+    font-size: 30px !important;
   }
 }
 @media (max-width: 1200px) {
-  p.johnylast{
-    font-size: 90px;
+  p.johnylastcollab{
+    /* font-size: 50px !important; */
   }
   .sadegh-container {
     height: 160vh !important;
   }
 }
 @media (max-width: 450px) {
-  p.johnylast{
-    font-size: 45px;
+  p.johnylastcollab{
+    font-size: 25px !important;
   }
   div.sadegh-container {
     height: 80vh !important;

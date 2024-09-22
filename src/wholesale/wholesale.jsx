@@ -19,7 +19,6 @@ const Wholesale = ()=>{
     [img16, img17],
     [img18, img19],
     [ img20, img21 ],
-    // Add more spreads as needed
   ];
 
   const handleNextPage = () => {
@@ -29,7 +28,7 @@ const Wholesale = ()=>{
       setTimeout(() => {
         setCurrentPage(currentPage + 1);
         setIsFlipping(false);
-      }, 1000); // duration should match the CSS transition duration
+      }, 1000); 
     }
   };
 
@@ -40,16 +39,16 @@ const Wholesale = ()=>{
       setTimeout(() => {
         setCurrentPage(currentPage - 1);
         setIsFlipping(false);
-      }, 1000); // duration should match the CSS transition duration
+      }, 1000); 
     }
   };
   return(
     <div>
       <Mynav/>
     <div>
-      <div className="container-fluid py-5 text-center">
+      <div className="container-fluid py-5 mt-5 text-center">
         <div className='row justify-content-center align-items-center mb-5 pb-5 row-last'>
-          <p className="align-items-center johnylast">150+ WHOLESALE GREETING CARDS</p>
+          <p className="align-items-center johnylastwholesale">150+ WHOLESALE GREETING CARDS</p>
         </div>
       </div>
     </div>
@@ -101,14 +100,14 @@ const Wholesale = ()=>{
             </div>
             <div className="col-md-4 text-center">
             </div>
-            <div className="col-md-4 text-center d-flex flex-column align-items-center justify-content-center promo-text">
-            <h1 className="promo-heading mx-5 mt-5 text-center">THANK YOU FOR YOUR INTEREST IN WHOLESALE!</h1>
+            <div className="col-md-4 text-center d-flex flex-column align-items-center justify-content-center promo-textwholesale">
+            <h1 className="promo-headingwholesale mx-5 mt-5 text-center">THANK YOU FOR YOUR INTEREST IN WHOLESALE!</h1>
               <p className="promo-details promo-detailshome mx-5 mb-5 text-center">We would love for you to carry our products in your shop. For an updated copy of our catalog and more information on becoming a Johnny Cupcakes Stockist, fill out the form below. We'll follow up with the details needed to place your first order!</p>
             </div>
           </div>
         </div>
         {/*  */}
-        <div className="book-container my-5">
+        <div className="book-containerwholesale my-5">
       <div className={`book ${isFlipping ? 'flipping' : ''} ${flipDirection}`}>
         <div className="page left">
           <img src={pages[currentPage][0]} alt="Page Left" />

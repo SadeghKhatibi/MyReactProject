@@ -1,0 +1,27 @@
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+div.image-preview {
+  margin-top: 10px;
+  width: 200px !important;
+  border-radius: 10px;
+  height: 200px !important;
+  overflow: hidden;
+}
+.checkbox-group{
+  display: flex;
+  flex-wrap: wrap;
+}
+.checkbox-group .form-check {
+  margin-left: 10px; /* فاصله بین چک‌باکس‌ها */
+}
+.image-preview img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.submitpanel{
+  background-color: rgb(65, 65, 255) !important;
+  color: white !important;
+}

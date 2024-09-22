@@ -8,8 +8,8 @@ const Whosupport = () =>{
       <Mynav/>
       <div className="container-fluid py-5 text-center">
         <div className='row justify-content-center align-items-center mb-3 row-last'>
-          <p className="align-items-center johnylast">$360,230.+ DONATIONS</p>
-          <p className='fw-bolder fs-3 mt-3'>WE SUPPORT OUR COMMUNITY LOCALLY + GLOBALLY BY <br /> RAISING AWARENESS + DONATING TIME, MONEY, & <br /> RESOURCES</p>
+          <p className="align-items-center johnylastsupport mt-3">$360,230.+ DONATIONS</p>
+          <p className='fw-bolder johnylastsupport2 fs-3 mt-3'>WE SUPPORT OUR COMMUNITY LOCALLY + GLOBALLY BY <br /> RAISING AWARENESS + DONATING TIME, MONEY, & <br /> RESOURCES</p>
         </div>
       </div>
       {/*  */}
@@ -149,7 +149,7 @@ const Whosupport = () =>{
       <div className="row align-items-center">
         <div className='col-md-6 pe-5'>
           <p className='fs-3'>Don't See Your Organization?</p>
-          <p className='lasttext'>TALK TO US ABOUT WHO WE SHOULD SUPPORT!</p>
+          <p className='lasttextsupport'>TALK TO US ABOUT WHO WE SHOULD SUPPORT!</p>
         </div>
         <div className="col-md-6 ps-5">
           <div className='container'>

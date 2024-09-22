@@ -14,13 +14,13 @@ button.promo-button:hover{
   color: rgb(125, 206, 125);
   border: 1px solid rgb(125, 206, 125);
 }
-input{
+.input{
   border-radius: 10px;
   width: 440px;
   height: 60px;
   border: 1px solid gray;
   padding-left: 25px;
 }
-a , a p{
+.plink{
   color: gray;
 }

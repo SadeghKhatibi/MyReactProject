@@ -1,16 +1,16 @@
-.johnylast{
+.johnylastcommunity{
   -webkit-text-stroke: 1px black;
   color: transparent;
   font-weight: bolder;
-  font-size: 160px;
+  font-size: 90px ;
   line-height: 0.9;
 }
 /*  */
-.position-relative {
+.position-relativecommunity {
   position: relative;
 }
 
-img.img2nafar{
+img.img2nafarcommunity{
   height: 294px;
   width: 335.5px;
   background-color: pink;
@@ -121,21 +121,21 @@ img.gaz2{
 }
 
 /*  */
-.testimonials-container {
+.testimonials-containercommunity {
   width: 80%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
 
-.testimonials {
+.testimonialscommunity {
   display: flex;
   transition: transform 0.5s ease-in-out;
   overflow-x:scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
-div.testimonials > div {
+div.testimonialscommunity > div {
   scroll-snap-align: start;
 }
 
@@ -148,11 +148,11 @@ div.testimonials > div {
   background-color:lightpink;
 }
 
-.controls {
+.controlscommunity {
   margin-top: 20px;
 }
 
-.controls button {
+.controlscommunity button {
   margin: 0 10px;
   color: #000;
   background-color: #fff;
@@ -190,14 +190,14 @@ div.progress-bar {
 
 /* استایل برای آیکون‌های ستاره */
 .star-rating .fas {
-  font-size: 24px; /* تغییر اندازه آیکون‌ها */
-  color: #ccc !important; /* رنگ پیش‌فرض ستاره‌ها */
-  margin-right: 50px !important; /* فاصله بین ستاره‌ها */
+  font-size: 24px; 
+  color: #ccc !important; 
+  margin-right: 50px !important; 
 }
 
 /* استایل برای ستاره‌های پر شده */
 .star-rating .fas.filled {
-  color: #ffd700 !important; /* رنگ ستاره‌های پر شده */
+  color: #ffd700 !important; 
 }
 
 .huser{
@@ -205,7 +205,7 @@ div.progress-bar {
 }
 /*  */
 /* Base styles */
-.container-fluid1{
+.container-fluid1community{
   display:none;
 }
 .container-fluid {
@@ -221,9 +221,8 @@ div.grid-container {
   margin-bottom: 20px;
 }
 /* Responsive styles for text and videos */
-/* Responsive styles for images */
 @media (max-width: 1450px) {
-  .container-fluid1{
+  .container-fluid1community{
     display: block;
   }
   .none{
@@ -233,7 +232,7 @@ div.grid-container {
     grid-template-columns: 1fr;
     display: grid;
 }
-.testimonials-container{
+.testimonials-containercommunity{
   margin-left: 1px;
   width: 63%;
 }
@@ -284,7 +283,7 @@ img, video {
     bottom: 300px;
   }
 
-  .row-last p {
+  .row-lastcommunity p {
     font-size: 4vw;
     margin: 0 auto;
 }
@@ -308,7 +307,7 @@ img, video {
   .grid-item {
       margin-bottom: 20px;
   }
-  .row-last p {
+  .row-lastcommunity p {
     font-size: 4vw;
     margin: 0 auto;
 }

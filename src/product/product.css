@@ -21,6 +21,10 @@
   border-radius: 22px;
   height: 50px;
   padding: 10px;
+  background-color: #fff;
+}
+.Blue:hover{
+  background-color: yellow;
 }
 .promo-button {
   background-color: rgb(125, 206, 125);
@@ -59,7 +63,7 @@ div.fixed {
 
 div.absolute {
   position: absolute;
-  top: 0px; /* این مقدار باید همان مقدار maxScrollHeight باشد */
+  top: 0px; 
   margin-left: 698px;
 }
 /*  */
@@ -217,11 +221,11 @@ button.button {
 }
 
 
-.overlay p.quote {
+/* .overlay p.quote {
   font-size: 1.2rem;
   margin-top: 1rem;
   font-style: italic;
-}
+} */
 /*  */
 button.video-play-button {
   position: relative;
@@ -349,6 +353,7 @@ button.video-play-button {
     position: absolute;
   }
 }
+
 @media (max-width: 420px) {
   .overlay {
     left: 190px;
@@ -377,14 +382,3 @@ button.video-play-button {
     text-align: center;
   }
 }
-
-/* استایل‌های مربوط به fixed و absolute */
-/* div.fixed {
-  position: fixed ;
-  top: 0;
-}
-
-div.absolute {
-  position: absolute ;
-  top: 1880px ; مقدار بالا را بر اساس نیاز تغییر دهید
-} */

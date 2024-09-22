@@ -100,8 +100,8 @@ const Community = () =>{
       <Mynav/>
       <div className='none'>
       <div className="container-fluid py-5 text-center">
-        <div className='row justify-content-center align-items-center mb-3 row-last'>
-          <p className="align-items-center johnylast">22+ YEARS OF COMMUNITY</p>
+        <div className='row justify-content-center align-items-center mb-3 row-lastcommunity'>
+          <p className="align-items-center johnylastcommunity">22+ YEARS OF COMMUNITY</p>
         </div>
       </div>
       {/*  */}
@@ -115,7 +115,7 @@ const Community = () =>{
               </div>
               <div className="row">
               <div class="col-12">
-                        <div class="box position-relative w-100 mt-4 ps-2">
+                        <div class="box position-relativecommunity w-100 mt-4 ps-2">
                             <img src={img4} className="img-fluid promo-image gaz" alt="Johnny's Journey"/>
                         </div>
                     </div>
@@ -126,7 +126,7 @@ const Community = () =>{
             <div className="container">
               <div className="row">
                 <div className="col-md-6">
-                <img src={img1} alt="Promotion" className="img-fluid promo-image img2nafar " />
+                <img src={img1} alt="Promotion" className="img-fluid promo-image img2nafarcommunity " />
                 </div>
                 <div className="col-md-6 pading">
                 <img src={img2} alt="Promotion" className="img-fluid promo-image imgtwitter" />
@@ -134,7 +134,7 @@ const Community = () =>{
               </div>
               <div className="row">
               <div class="col-12 d-flex align-items-stretch">
-                        <div class="box position-relative mt-4 pe-4">
+                        <div class="box position-relativecommunity mt-4 pe-4">
                             <img src={img5} className="w-100 img-fluid promo-image img35" alt="Johnny's Journey"/>
                         </div>
                     </div>
@@ -187,7 +187,7 @@ const Community = () =>{
               </div>
               <div className="row">
               <div class="col-12 d-flex align-items-stretch">
-                <div class="box position-relative mt-4 pe-4">
+                <div class="box position-relativecommunity mt-4 pe-4">
                   <img src={img10} className="w-100 img-fluid promo-image basket" alt="Johnny's Journey"/>
                 </div>
                 </div>
@@ -220,8 +220,8 @@ const Community = () =>{
           </div>
         </div>
         {/* جای نظرات */}
-        <div className="testimonials-container mt-4">
-      <div className="testimonials" style={{ transform: `translateX(-${currentIndex * (100 / 2.74)}%)` }}>
+        <div className="testimonials-containercommunity mt-4">
+      <div className="testimonialscommunity" style={{ transform: `translateX(-${currentIndex * (100 / 2.74)}%)` }}>
         {testimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-box">
             <StarRating rating={testimonial.rating} />
@@ -231,7 +231,7 @@ const Community = () =>{
           </div>
         ))}
       </div>
-      <div className="controls text-center">
+      <div className="controlscommunity text-center">
         <button onClick={handlePrev} disabled={currentIndex === 0}><FontAwesomeIcon icon={faChevronLeft}/></button>
         <button onClick={handleNext} disabled={currentIndex >= testimonials.length - 3}><FontAwesomeIcon icon={faChevronRight}/></button>
       </div>
@@ -309,12 +309,12 @@ const Community = () =>{
         <div className="col-md-6 pe-3">
             <div className="container">
               <div className="row">
-                <div className="col-12 text-center box position-relative w-100">
+                <div className="col-12 text-center box position-relativecommunity w-100">
                 <img src={img17} alt="Promotion" className="img-fluid promo-image gaz2" />
           </div>
           </div>
           <div className="row">
-                <div className="col-12 text-center box position-relative w-100 mt-4">
+                <div className="col-12 text-center box position-relativecommunity w-100 mt-4">
                 <img src={img18} alt="Promotion" className="img-fluid promo-image gaz2" />
           </div>
           </div>
@@ -335,12 +335,12 @@ const Community = () =>{
         <div className="col-md-6 pe-3">
             <div className="container">
               <div className="row">
-                <div className="col-12 text-center box position-relative w-100">
+                <div className="col-12 text-center box position-relativecommunity w-100">
                 <img src={img20} alt="Promotion" className="img-fluid promo-image gaz2" />
           </div>
           </div>
           <div className="row">
-                <div className="col-12 text-center box position-relative w-100 mt-4">
+                <div className="col-12 text-center box position-relativecommunity w-100 mt-4">
                 <img src={img21} alt="Promotion" className="img-fluid promo-image gaz2" />
           </div>
           </div>
@@ -358,9 +358,9 @@ const Community = () =>{
         </div>
         </div>
         {/*  */}
-        <div className="container-fluid container-fluid1 py-5 text-center">
-    <div className='row justify-content-center align-items-center mb-3 row-last'>
-        <p className="align-items-center johnylast">22+ YEARS OF COMMUNITY</p>
+        <div className="container-fluid container-fluid1community py-5 text-center">
+    <div className='row justify-content-center align-items-center mb-3 row-lastcommunity'>
+        <p className="align-items-center johnylastcommunity">22+ YEARS OF COMMUNITY</p>
     </div>
 </div>
 
@@ -369,7 +369,7 @@ const Community = () =>{
         <img src={img3} alt="Promotion" className="img-fluid promo-image img35" />
     </div>
     <div className="grid-item">
-        <img src={img1} alt="Promotion" className="img-fluid promo-image img2nafar" />
+        <img src={img1} alt="Promotion" className="img-fluid promo-image img2nafarcommunity" />
         <img src={img2} alt="Promotion" className="img-fluid promo-image imgtwitter" />
     </div>
     <div className="grid-item">
@@ -409,8 +409,8 @@ const Community = () =>{
         </div>
     </div>
     <div className="grid-item">
-        <div className="testimonials-container">
-            <div className="testimonials" style={{ transform: `translateX(-${currentIndex * (100 / 2.74)}%)` }}>
+        <div className="testimonials-containercommunity">
+            <div className="testimonialscommunity " style={{ transform: `translateX(-${currentIndex * (100 / 2.74)}%)` }}>
                 {testimonials.map((testimonial, index) => (
                     <div key={index} className="testimonial-box">
                         <StarRating rating={testimonial.rating} />
@@ -420,7 +420,7 @@ const Community = () =>{
                     </div>
                 ))}
             </div>
-            <div className="controls text-center">
+            <div className="controlscommunity text-center">
                 <button onClick={handlePrev} disabled={currentIndex === 0}><FontAwesomeIcon icon={faChevronLeft}/></button>
                 <button onClick={handleNext} disabled={currentIndex >= testimonials.length - 3}><FontAwesomeIcon icon={faChevronRight}/></button>
             </div>

@@ -1,4 +1,4 @@
-import React , {useState , useEffect} from 'react';
+import React , {useState , useEffect , useContext} from 'react';
 import Mynav from '../Mynav/Mynav';
 import Footer from '../footer/footer';
 import img1 from '../image/johny abgosht.webp'
@@ -11,70 +11,25 @@ import img7 from '../image/smnion.webp'
 import img8 from '../image/tato.webp'
 import img9 from '../image/sokanraniabout.webp'
 import img10 from '../image/anbarabout.webp'
-import img11 from '../image/BAKED1.webp'
-import img12 from '../image/baked2.webp'
-import img13 from '../image/baked3.webp'
-import img14 from '../image/baked4.webp'
-import img15 from '../image/baked5.webp'
-import img16 from '../image/baked6.webp'
+import ProductContext from '../ProductContext/ProductContext';
+import { useNavigate } from 'react-router-dom';
 import { Button , Modal , Form} from 'react-bootstrap';
-import { faChevronDown, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './about.css'
 import { faChevronLeft , faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Modal1 from '../home/modal/modal';
-const testimonials = [
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img1 ,
-    hoverImage: img2,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-];
-// 
 const About = () =>{
+  const navigate = useNavigate();
+  const { products } = useContext(ProductContext);
+  const aboutProducts = products.filter(product => product.category === 'about');
+  const testimonials = aboutProducts.map((product) => ({
+    image: product.images[0] ? URL.createObjectURL(product.images[0]) : null,
+    hoverImage: product.images[1] ? URL.createObjectURL(product.images[1]) : null,
+    texts: [
+      product.productName,
+      `€${product.price}`,
+    ],
+  }));
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -88,8 +43,8 @@ const About = () =>{
     };
   }, []);
   const startScroll = 845;
-  const maxWidth = 1469; // maximum width of the box
-  const maxHeight = 1342; // maximum height of the box
+  const maxWidth = 1469;
+  const maxHeight = 1342; 
   const minWidth = 400;
   const minHeight = 150;
   const isScrolled = scrollY > startScroll;
@@ -208,17 +163,33 @@ const About = () =>{
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
   const [isModalOpen1, setModalOpen1] = useState(false);
-
-  const product = {
-    name: "World's Softest Embroidered Mini Crossbones Zip (Hot Pink)",
-    image: img1, // مسیر صحیح تصویر را اینجا قرار دهید
-    price: '€92,95',
-    sizes: ['Adult / Small', 'Adult / Medium', 'Adult / Large', 'Adult / XL', 'Adult / 2XL', 'Adult / 3XL'],
-    color: 'Pink'
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const handleClick = (product) => {
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
+    setShow1(true);
+    navigate('/Product', { state: { product, category: 'about' } });
   };
-  const handleClick = () => {
-    setModalOpen1(true);
-    handleShow1();
+  const handleQuickAddClick = (event, product) => {
+    event.stopPropagation();
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
+    setShow1(true);
+  };
+  const handleClose = () => {
+    setModalOpen1(false);
+    setShow1(false);
+    setSelectedProduct(null);
   };
 
   return(
@@ -251,8 +222,8 @@ const About = () =>{
     </div>
 
     {/* </div> */}
-    <div className='container mt-5 mb-5 pb-3'>
-          <div className='col-12 text-center my-5'>
+    <div className='container'>
+          <div className='col-12 text-center'>
             <img src={img1} alt="" className='img-fluid promo-imageabout'/>
             <div className="overlayabout mt-5 pt-5">
   <button className="btn btnabout video-play-button rounded-circle p-0" type="button">
@@ -267,7 +238,7 @@ const About = () =>{
       </div>
       <br />
       {/*  */}
-      <div className="container-fluid container-fluid1 family-container pt-5 mt-5 pb-5 mb-5">
+      <div className="container-fluid container-fluid1 family-container ">
       {contents.map((content, index) => (
         <div key={index} className={`family-content ${index === currentIndex ? 'active' : ''}`}>
           <div className="row">
@@ -290,7 +261,7 @@ const About = () =>{
           <div key={index} className={`nav-circle ${index === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(index)}></div>
         ))}
       </div>
-      <div className="family-controls mb-5 pb-5">
+      <div className="family-controls ms-5 ps-5 mb-5 pb-5">
         <button className="btn-circle btnabout-circle btnabout" onClick={handlePrev}><FontAwesomeIcon icon={faChevronLeft}/></button>
         <button className="btn-circle btnabout-circle btnabout" onClick={handleNext}><FontAwesomeIcon icon={faChevronRight}/></button>
       </div>
@@ -301,11 +272,13 @@ const About = () =>{
   <div className="testimonialsabout">
     {testimonials.map((testimonial, index) => (
       <div key={index} className="container">
-        <div className="box imgboxabout">
+        <div className="box imgboxabout" onClick={() => handleClick(aboutProducts[index])}
+            style={{ cursor: 'pointer' }}>
           <img src={testimonial.image} alt="" className="img-fluid imgcartabout" />
           <img src={testimonial.hoverImage} alt="" className="hover-image"/>
-          <Button className='button' variant="" onClick={handleClick}>+ Quick add</Button>
-          </div>
+          <Button className='buttonshopasli' variant="" 
+              onClick={(e) => handleQuickAddClick(e, aboutProducts[index])}
+>+ Quick add</Button></div>
         <div className="text-center1about">
           {testimonial.texts.map((text, i) => (
             <p key={i} className={`highlited${i}`}>{text}</p>
@@ -316,10 +289,10 @@ const About = () =>{
   </div>
 </div>
     </div>
-    <Modal show={show1} onHide={handleClose1}>
+    <Modal show={show1} onHide={handleClose}>
     <div class="modal-header"><div class="modal-title h4">Quick add</div><button type="button" class="btn-close btnabout" aria-label="Close" onClick={handleClose1}></button></div>
         <Modal.Body>
-            <Modal1 isOpen={isModalOpen1} onClose={() => setModalOpen1(false)} product={product} />
+        {selectedProduct && <Modal1 isOpen={show1} onClose={handleClose} product={selectedProduct} />}
         </Modal.Body>
       </Modal>
       <Footer/>

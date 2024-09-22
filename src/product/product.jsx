@@ -9,69 +9,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Button , Modal , Form} from 'react-bootstrap';
 import Modal1 from '../home/modal/modal';
-const productimage = [
-  {
-    image : img2 
-  },
-  {
-    image : img2 
-  },
-  {
-    image : img2 
-  }
-]
-const testimonials = [
-  {
-    image : img2 ,
-    hoverImage: img1,
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import ProductContext from '../ProductContext/ProductContext';
+function Product(){
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { product } = location.state || {};
+  const { products } = useContext(ProductContext);
+  const similarProducts = product 
+  ? products.filter(p => p.category === product.category && p.id !== product.id)
+  : [];
+  const testimonials = similarProducts.map((similarProduct) => ({
+    image: similarProduct.images && similarProduct.images[0] ? URL.createObjectURL(similarProduct.images[0]) : null,
+    hoverImage: similarProduct.images && similarProduct.images[1] ? URL.createObjectURL(similarProduct.images[1]) : null,
     texts: [
-      'STICKERMA',
-      '€4,95',
+      similarProduct.productName,
+      `€${similarProduct.price}`
     ]
-  },
-  {
-    image : img2 ,
-    hoverImage: img1,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img2 ,
-    hoverImage: img1,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img2 ,
-    hoverImage: img1,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img2 ,
-    hoverImage: img1,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-  {
-    image : img2 ,
-    hoverImage: img1,
-    texts: [
-      'STICKERMA',
-      '€4,95',
-    ]
-  },
-];
-const Product = ()=>{
+  }));
+
+  const { addToCart } = useContext(ProductContext);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState('');
+  const productimage = product?.images?.map((image, index) => ({
+    image: URL.createObjectURL(image)
+  }));
 
   const handleNext = () => {
     if (currentIndex < testimonials.length - 3) {
@@ -87,11 +54,10 @@ const Product = ()=>{
   // 
   const [isFixed, setIsFixed] = useState(false);
   const [isAbsolute, setIsAbsolute] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
-      const scrollHeight = 0; // ارتفاعی که در آن عنصر ثابت شود
-      const maxScrollHeight = 480; // ارتفاعی که در آن عنصر دوباره به حالت اولیه بازگردد
+      const scrollHeight = 0; 
+      const maxScrollHeight = 340; 
       if (window.scrollY >= scrollHeight && window.scrollY < maxScrollHeight) {
         setIsFixed(true);
         setIsAbsolute(false);
@@ -119,38 +85,82 @@ const Product = ()=>{
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [show1, setShow1] = useState(false);
+  const handleShow1 = () => setShow1(true);
+  const [isModalOpen1, setModalOpen1] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const product = {
-    name: "World's Softest Embroidered Mini Crossbones Zip (Hot Pink)",
-    image: img1, // مسیر صحیح تصویر را اینجا قرار دهید
-    price: '€92,95',
-    sizes: ['Adult / Small', 'Adult / Medium', 'Adult / Large', 'Adult / XL', 'Adult / 2XL', 'Adult / 3XL'],
-    color: 'Pink'
-  };
-  const handleClick = () => {
+  const handleClick = (product) => {
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
     setModalOpen(true);
     handleShow();
+    setShow1(false);
+    setShow(true);
+    navigate('/Product', { state: { product } });
   };
-
+  const handleSizeSelect = (size) => {
+    setSelectedSize(size);
+  };
+  const handleQuickAddClick = (event, product) => {
+    event.stopPropagation();
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
+    setShow1(true);
+  };
+  const handleColorSelect = (color) => {
+    setSelectedColor(color);
+  };
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      alert('Please select a size and color.');
+      return;
+    }
+    const selectedProduct = {
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSize,
+      selectedColor,
+      quantity: 1,
+    };
+    addToCart(selectedProduct);
+    navigate('/Card');
+  };
+  const handleClose1 = () => {
+    setModalOpen1(false);
+    setShow1(false);
+    setSelectedProduct(null);
+  };
   return(
     <div>
       <Mynav/>
       <div className="container-fluid mt-5 px-5 pt-5">
         <div className="row">
-          <div className="col-md-6 display2">
-            <div className="row box1">
-            <img src={img1} alt="" />
-            </div>
-            <div className="row mt-3">
-              <div className="col-md-6 box2">
-              <img src={img1} alt="" />
-              </div>
-              <div className="col-md-6 box2 ms-3">
-              <img src={img1} alt="" />
-              </div>
-            </div>
+        <div className="col-md-6 display2">
+        <div className="row box1">
+          <img src={URL.createObjectURL(product.images[0])} alt="" />
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-6 box2">
+            <img src={URL.createObjectURL(product.images[1])} alt="" />
           </div>
+          <div className="col-md-6 box2 ms-3">
+            <img src={URL.createObjectURL(product.images[2])} alt="" />
+          </div>
+        </div>
+        </div>
           {/*  */}
           <div className="testimonials-container display mt-4 pb-5 ms-3">
   <div className="testimonials" style={{ transform: `translateX(-${currentIndex * (100 / 4)}%)` }}>
@@ -166,22 +176,29 @@ const Product = ()=>{
           {/*  */}
           <div className='display2'>
           <div className={className}>
-          <p className='fs-1 fw-bolder mt-5'>BAKESY - BLUE</p>
-          <p>€28,95</p>
-          <span className='spangray'>Size</span><span>:Adult / Small</span>
+          <p className='fs-1 fw-bolder mt-5'>{product.productName}</p>
+          <p>€{product.price}</p>
+          <span className='spangray'>Size:</span>
           <br />
-          <button className='btnsize mt-2' disabled>Adult / Small</button>
-          <button className='btnsize ms-2' disabled>Adult / Medium</button>
-          <button className='btnsize ms-2' disabled>Adult / Large</button>
-          <button className='btnsize ms-2' disabled>Adult / Xl</button>
-          <button className='btnsize ms-2' disabled>Adult / 2Xl</button>
-          <button className='btnsize mt-2' disabled>Adult / 3xl</button>
+          {product.selectedSizes.map((size, index) => (
+            <button 
+              key={index} 
+              className={`btnsize mt-2 ${selectedSize === size ? 'selected' : ''}`} 
+              onClick={() => handleSizeSelect(size)}
+            >{size}</button>
+          ))}
           <br /><br />
-          <span className='spangray mt-4'>Size</span><span>:Blue</span>
+          <span className='spangray mt-4'>Color:</span>
           <br />
-          <button className='Blue mt-2 mb-1'>Blue</button><br />
+          {product.selectedColors.map((color, index) => (
+            <button 
+              key={index} 
+              className={`btnsize mt-2 mb-1 ms-2 ${selectedColor === color ? 'selected' : ''}`} 
+              onClick={() => handleColorSelect(color)}
+            >{color}</button>
+          ))}
           <div className="row">
-          <button className='mt-4 promo-button' >Add to cart</button>
+          <button className='mt-4 promo-button' onClick={handleAddToCart}>Add to cart</button>
           <p className='mt-4'>Sold out of your size? Click here to add yourself to the wishlist! </p><br />
 <p>Limited timed, small batch t-shirt! Available in 3 colors - collect them all! </p><br />
 <p>Printed on a 100% Cotton Hydro Blue T-shirt.</p>
@@ -189,22 +206,29 @@ const Product = ()=>{
           </div>
           </div>
           <div className='display'>
-          <p className='fs-1 fw-bolder mt-5'>BAKESY - BLUE</p>
-          <p>€28,95</p>
-          <span className='spangray'>Size</span><span>:Adult / Small</span>
+          <p className='fs-1 fw-bolder mt-5'>{product.productName}</p>
+          <p>€{product.price}</p>
+          <span className='spangray'>Size</span>
           <br />
-          <button className='btnsize mt-2' disabled>Adult / Small</button>
-          <button className='btnsize ms-2' disabled>Adult / Medium</button>
-          <button className='btnsize ms-2' disabled>Adult / Large</button>
-          <button className='btnsize ms-2' disabled>Adult / Xl</button>
-          <button className='btnsize ms-2' disabled>Adult / 2Xl</button>
-          <button className='btnsize mt-2' disabled>Adult / 3xl</button>
+          {product.selectedSizes.map((size, index) => (
+            <button 
+              key={index} 
+              className={`btnsize mt-2 ${selectedSize === size ? 'selected' : ''}`} 
+              onClick={() => handleSizeSelect(size)}
+            >{size}</button>
+          ))}
           <br /><br />
-          <span className='spangray mt-4'>Size</span><span>:Blue</span>
+          <span className='spangray mt-4'>Color:</span>
           <br />
-          <button className='Blue mt-2 mb-1'>Blue</button><br />
+          {product.selectedColors.map((color, index) => (
+            <button 
+              key={index} 
+              className={`btnsize mt-2 mb-1 ms-2 ${selectedColor === color ? 'selected' : ''}`} 
+              onClick={() => handleColorSelect(color)}
+            >{color}</button>
+          ))}
           <div className="row">
-          <button className='mt-4 promo-button' >Add to cart</button>
+          <button className='mt-4 promo-button' onClick={handleAddToCart} >Add to cart</button>
           <p className='mt-4'>Sold out of your size? Click here to add yourself to the wishlist! </p><br />
 <p>Limited timed, small batch t-shirt! Available in 3 colors - collect them all! </p><br />
 <p>Printed on a 100% Cotton Hydro Blue T-shirt.</p>
@@ -260,15 +284,17 @@ const Product = ()=>{
   <div className="testimonials" style={{ transform: `translateX(-${currentIndex * (100 / 4)}%)` }}>
     {testimonials.map((testimonial, index) => (
       <div key={index} className="container">
-        <div className="box imgbox ms-3">
+        <div className="box imgbox ms-3" onClick={() => handleClick(similarProducts[index])}
+            style={{ cursor: 'pointer' }}>
           <img src={testimonial.image} alt="" className="img-fluid imgcart" />
           <img src={testimonial.hoverImage} alt="" className="hover-image"/>
-          <Button className='button' variant="" onClick={handleClick}>+ Quick add</Button>
+          <Button className='button' variant="" 
+          onClick={(e) => handleQuickAddClick(e, similarProducts[index])}>+ Quick add</Button>
           </div>
         <div className="text-center1">
-          {testimonial.texts.map((text, i) => (
-            <p key={i} className={`highlited${i}`}>{text}</p>
-          ))}
+        {testimonial.texts.map((text, i) => (
+                <p key={i} className={`highlited${i}`}>{text}</p>
+              ))}
         </div>
       </div>
     ))}
@@ -311,12 +337,22 @@ const Product = ()=>{
             </div>
     </div>
     {/*  */}
-    <Modal show={show} onHide={handleClose}>
-    <div class="modal-header"><div class="modal-title h4">Quick add</div><button type="button" class="btn-close" aria-label="Close" onClick={handleClose}></button></div>
+    <Modal show={show1} onHide={handleClose1}>
+    <div class="modal-header"><div class="modal-title h4">Quick add</div><button type="button" class="btn-close" aria-label="Close" onClick={handleClose1}></button></div>
         <Modal.Body>
-            <Modal1 isOpen={isModalOpen} onClose={() => setModalOpen(false)} product={product} />
+        {selectedProduct && <Modal1 isOpen={show1} onClose={handleClose1} product={selectedProduct} />}
         </Modal.Body>
       </Modal>
+      <div>
+      <Modal1
+        isOpen={show1}
+        onClose={handleClose1}
+        product={selectedProduct}
+        onAddToCart={(product) => {
+          console.log('Product added to cart:', product);
+        }}
+      />
+    </div>
     {/*  */}
       <Footer/>
     </div>

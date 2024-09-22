@@ -51,7 +51,7 @@ div.sadegh-containerbook {
 }
 
 .sadegh-boxbook {
-  background-image: url('../image/konfranse\ bookjohny.webp'); /* Ensure the correct path */
+  background-image: url('../image/konfranse\ bookjohny.webp'); 
   background-size: cover;
   background-position: center;
   display: flex;
@@ -71,7 +71,7 @@ div.sadegh-containerbook {
   font-weight: bold;
   transition: color 0.3s ease, opacity 0.3s ease;
   position: absolute;
-  font-size: calc(0.8rem + 0.5vw); /* Adjust font size based on viewport width */
+  font-size: calc(0.8rem + 0.5vw); 
 }
   p.helpingtextbook{
   font-size: 75px;
@@ -150,7 +150,7 @@ img.featured-logo {
 
 .promo-headingbook {
   /* font-size: 49px; */
-  font-size: calc(1rem + 1vw); /* Adjust font size based on viewport width */
+  font-size: calc(1rem + 1vw); 
   font-weight: bolder;
 }
 .promo-imagebook {
@@ -164,13 +164,13 @@ img.featured-logo {
 /*  */
 .book-container {
   position: relative;
-  /* width: 868px; Width for two pages */
+  /* width: 868px;  */
   width: 100%;
     max-width: 1000px;
-  height: 570px; /* Height for pages */
+  height: 570px; 
   /* margin: auto; */
   margin: 0 auto;
-  perspective: 1000px; /* Perspective for 3D effect */
+  perspective: 1000px; 
 }
 /* حواست باشه */
 .testimonials .col-md-4 {
@@ -425,9 +425,11 @@ button.promo-button {
       flex: 0 0 100%;
       max-width: 100%;
   }
+  p.johnylastbook{
+    font-size: 23px !important;
+  }
 }
 
-/* Responsive Styles for Text and Image */
 @media (max-width: 1000px) {
   .container .row > .col-md-6 {
       flex: 0 0 100%;
@@ -440,4 +442,9 @@ button.promo-button {
       flex: 0 0 100%;
       max-width: 100%;
   }
+}
+@media (max-width: 700px) {
+.promo-button{
+  width: 80% !important;
+}
 }

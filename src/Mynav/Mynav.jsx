@@ -35,10 +35,8 @@ const Mynav = () =>{
       }
 
       if (currentScrollY > lastScrollY) {
-        // اگر به بالا اسکرول کنیم، نوار پیمایش ظاهر می‌شود
         setIsVisible(false);
       } else {
-        // اگر به پایین اسکرول کنیم، نوار پیمایش پنهان می‌شود
         setIsVisible(true);
       }
     }
@@ -53,6 +51,7 @@ const Mynav = () =>{
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+  // 
   return(
     <div>
 <div className='marquee'>
@@ -67,7 +66,7 @@ const Mynav = () =>{
     </div>
     <nav className={`navbar navbar-expand-lg navbar-dark ${isScrolled ? 'fixed-top' : ''} ${isVisible ? '' : 'hidden'}`}>
         <div className="container-fluid ">
-          <a className="navbar-brand" href="#">JOHNNY CUPCAKES®</a>
+        <Link to="/" className='navbar-brand' >JOHNNY CUPCAKES®</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -83,10 +82,8 @@ const Mynav = () =>{
                     <div className="col-md-3 mt-3">
                         <h4 className='fw-bold ps-3'>CLOTHING</h4>
                         <p className="mt-3 ps-3">
-                        <p><Link to="/shop" className='mega-menu-text1'>Shop All</Link></p><p><Link to="/shop" className='mega-menu-text1'>T-Shirts</Link></p>
-{/* <p className='mega-menu-text1'>Shop All</p><p className='mega-menu-text1'>T-Shirts</p> */}
-                        <p><Link to="/shop" className='mega-menu-text1'>Hoodies + Sweats</Link></p><p><Link to="/shop" className='mega-menu-text1'>Long-Sleeve</Link></p><p><Link to="/shop" className='mega-menu-text1'>Best Sellers</Link></p><p><Link to="/shop" className='mega-menu-text1'>Freshly Baked</Link></p><p><Link to="/shop" className='mega-menu-text1'>Bake Sale</Link></p>
-                        {/* <p className='mega-menu-text1'>Hoodies + Sweats</p><p className='mega-menu-text1'>Long-Sleeve</p><p className='mega-menu-text1'>Best Sellers</p><p className='mega-menu-text1'>Freshly Baked</p><p className='mega-menu-text1'>Bake Sale</p> */}
+                        <p><Link to="/shop" className='mega-menu-text1' >Shop All</Link></p><p><Link to="/Tshirt" className='mega-menu-text1'>T-Shirts</Link></p>
+                        <p><Link to="/User" className='mega-menu-text1'>Hoodies + Sweats</Link></p><p><Link to="/UserAddresses" className='mega-menu-text1'>Long-Sleeve</Link></p><p><Link to="/shop" className='mega-menu-text1'>Best Sellers</Link></p><p><Link to="/shop" className='mega-menu-text1'>Freshly Baked</Link></p><p><Link to="/shop" className='mega-menu-text1'>Bake Sale</Link></p>
                         </p>
                       </div>
                       <div className="col-md-3 mt-3">
@@ -195,22 +192,22 @@ const Mynav = () =>{
                         </p>
                       </div>
                       <div className="col-md-3 text-center">
-                        <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/Collaborate" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                         <h4 className='text-center'>The Story</h4>
                             <img src={img28} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                       <div className="col-md-3 text-center">
-                      <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/Collaborate" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                       <h4 className='text-center'>Flagship Store</h4>
                             <img src={img29} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                       <div className="col-md-3 text-center">
-                      <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/Collaborate" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                       <h4 className='text-center'>Giving Back</h4>
                             <img src={img30} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                     </div>
                   </div>
@@ -230,38 +227,39 @@ const Mynav = () =>{
                         </p>
                       </div>
                       <div className="col-md-3 text-center">
-                        <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/Community" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                         <h4 className='text-center'>The Story</h4>
                             <img src={img31} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                       <div className="col-md-3 text-center">
-                      <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/support" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                       <h4 className='text-center'>Flagship Store</h4>
                             <img src={img32} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                       <div className="col-md-3 text-center">
-                      <div class="box imgboxfirst d-flex flex-column">
+                      <Link to="/Community" className='mega-menu-text1'><div class="box imgboxfirst d-flex flex-column">
                       <h4 className='text-center'>Giving Back</h4>
                             <img src={img33} class="img-fluid imgcart" alt="Image 4"/>
-                        </div>
+                        </div></Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li className="nav-item ms-4">
-                <a className="nav-link" href="#">WHOLESALE</a>
+              <Link to="/Wholesale" className='nav-link'>WHOLESALE</Link>
+                {/* <a className="nav-link" href="#">WHOLESALE</a> */}
               </li>
               <li className="nav-item faseleicon">
                 <a className="nav-link" href="#"><FontAwesomeIcon icon={faSearch} /></a>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link" href="#"><FontAwesomeIcon icon={faUser} /></a>
+              <Link to="/Login" className='nav-link'><FontAwesomeIcon icon={faUser} /></Link>
               </li>
               <li className="nav-item ms-3">
-                <a className="nav-link" href="#"><FontAwesomeIcon icon={faShoppingCart} /></a>
+              <Link to="/Card" className='nav-link'><FontAwesomeIcon icon={faShoppingCart} /></Link>
               </li>
             </ul>
           </div>

@@ -14,3 +14,10 @@ button.promo-button {
   font-size: 1rem;
   font-weight: bold;
 }
+label.form-label1 {
+  cursor: pointer;
+  color: tomato !important;
+}
+.form-label1:hover {
+  text-decoration: underline;
+}

@@ -1,7 +1,6 @@
-import React, { useState  , useEffect } from 'react';
+import React, { useState  , useContext , useEffect } from 'react';
 import './homecss.css'
 import img from'../image/image.webp'
-import img1 from '../image/thumbnail-10collaborage.webp'
 import img2 from'../image/classic_laundry_web.webp'
 import img3 from '../image/Screen_Shot_2022-10-14_at_10.05.45_PM.webp'
 import img4 from '../image/Screen_Shot_2022-10-14_at_10.05.54_PM.avif'
@@ -14,9 +13,6 @@ import img10 from '../image/pile_d8772b3d-22a5-4c70-9365-c530aea17d94_600x-1.web
 import img11 from '../image/tat_600x_7f49eb98-9979-44c2-b10c-aba000ab4fee.webp'
 import img12 from '../image/02.webp'
 import img13 from '../image/Screen_Shot_2022-10-22_at_3.39.15_PM.webp'
-import img14 from '../image/BlackSprinklesweb_87f8cc65-9aa3-443a-b6bc-4c51a46a600f.webp'
-import img15 from '../image/ZipUp2copy.webp'
-import img16 from '../image/JC-Week1-95_copy.webp'
 import img17 from '../image/classic_crossbones-guys-01_225e2361-4dd6-4304-9363-6f3a26d72ebd.webp'
 import img18 from '../image/Johnny_Cupcakes_22-Oct-2022-144519.webp'
 import img19 from '../image/tiger_hoody-2_4788f162-ba5d-40cb-8b67-d085abb6f403.webp'
@@ -28,65 +24,26 @@ import Mynav from '../Mynav/Mynav';
 import Footer from '../footer/footer';
 import { Button , Modal , Form} from 'react-bootstrap';
 import Modal1 from './modal/modal';
-const testimonials = [
-    {
-      image : img14 ,
-      hoverImage: img17,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-    {
-      image : img15 ,
-      hoverImage: img17,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-    {
-      image : img16 ,
-      hoverImage: img17,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-    {
-      image : img17 ,
-      hoverImage: img16,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-    {
-      image : img1 ,
-      hoverImage: img16,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-    {
-      image : img1 ,
-      hoverImage: img16,
-      texts: [
-        'STICKERMA',
-        '€4,95',
-      ]
-    },
-  ];
+import ProductContext from '../ProductContext/ProductContext';
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+  const navigate = useNavigate();
+  const { products } = useContext(ProductContext);
+  const homeProducts = products.filter(product => product.category === '');
+  const testimonials = homeProducts.map((product) => ({
+    image: product.images[0] ? URL.createObjectURL(product.images[0]) : null,
+    hoverImage: product.images[1] ? URL.createObjectURL(product.images[1]) : null,
+    texts: [
+      product.productName,
+      `€${product.price}`,
+    ],
+  }));
     const [currentIndex, setCurrentIndex] = useState(0);
-  
     const handleNext = () => {
       if (currentIndex < testimonials.length - 3) {
         setCurrentIndex(currentIndex + 1);
       }
     };
-  
     const handlePrev = () => {
       if (currentIndex > 0) {
         setCurrentIndex(currentIndex - 1);
@@ -97,47 +54,46 @@ const Home = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [isModalOpen, setModalOpen] = useState(false);
-
-  const product = {
-    name: "World's Softest Embroidered Mini Crossbones Zip (Hot Pink)",
-    image: img1, // 
-    price: '€92,95',
-    sizes: ['Adult / Small', 'Adult / Medium', 'Adult / Large', 'Adult / XL', 'Adult / 2XL', 'Adult / 3XL'],
-    color: 'Pink'
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const handleClick = (product) => {
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
+    setShow(true);
+    navigate('/Product', { state: { product } });
   };
-  const handleClick = () => {
-    setModalOpen(true);
-    handleShow();
+  const handleQuickAddClick = (event, product) => {
+    event.stopPropagation();
+    setSelectedProduct({
+      productName: product.productName,
+      images: product.images,
+      price: product.price,
+      selectedSizes: product.selectedSizes,
+      selectedColors: product.selectedColors || [],
+    });
+    setShow(true);
   };
-  // message
-  const [showMessage, setShowMessage] = useState(false);
-
+  const handleClose1 = () => {
+    setModalOpen(false);
+    setShow(false);
+    setSelectedProduct(null);
+  };
+  const [show1, setShow1] = useState(false);
+  const handleClose2 = () => setShow1(false);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowMessage(true);
-    }, 2000); // 
-
-    return () => clearTimeout(timer); // 
+    setShow1(true); // نمایش Popup به محض لود شدن سایت
   }, []);
-
-  const handleClos = () => {
-    setShowMessage(false);
-  };
     return (
       <div className='kolsite'>
         <Mynav/>
-        <div>
-      {showMessage && (
-        <div className='messageBox'>
-          <button onClick={handleClos} className='closeButton'>×</button>
-          <p>سلام من صادق خطیبی و این پروژه React من هستش این پروژه یک پروژه کامل فروشگاهی هستش و ۱۷ تا component داره من تمامیه component هارو طراحی و Responsive کردم و فقط link کردن component ها و ارتباط بین اونها مونده چون من امتحان داشتم کم وقت گذاشتم و نتونستم کامل تموم کنم وگرنه پروژه از دید بصری کامل هستش ممنون از اینکه وقت گذاشتین و پیام من رو خوندین</p>
-        </div>
-      )}
-    </div>
          {/* <div className="container-fluid"> */}
                   <div className="col-12 text-center">
                   <img src={img} id='image'/>
-                  <div className="overlay">
+                  <div className="overlayhome">
   <button className="btn video-play-button rounded-circle p-0" type="button">
       <div className="circle-background"></div>
       <svg role="presentation" fill="none" focusable="false" width="80" height="80" className="icon icon-play-button" viewBox="0 0 48 48">
@@ -145,10 +101,17 @@ const Home = () => {
       </svg>
     </button>
                      <p className="quote fw-bold">"Top Innovator in Retail" - The Boston Globe</p>
-                      <h1 className="fonte1">WORLD'S FIRST T-SHIRT<br/> BAKERY</h1>
-                      <p className="lead fs-4 ">332 Newbury Street · Boston, Massachusetts</p>
+                      <h1 className="fonte1home">WORLD'S FIRST T-SHIRT<br/> BAKERY</h1>
+                      <p className="leadhome fs-4 ">332 Newbury Street · Boston, Massachusetts</p>
                   </div>
                   </div>
+                  <Modal show={show1} onHide={handleClose2}>
+      <Modal.Body><div class="farsi-text">
+      سلام! خوش آمدید به پروژه من،<br />
+<b>سید صادق خطیبی </b> هستم و در این پروژه قصد دارم توانایی‌ها و تجربه‌های خودم در React را با شما به اشتراک بگذارم. این پروژه نتیجه ۲.۵ تا ۳ ماه تلاش مستمر من است و هدفم ارائه یک نمونه‌کار قوی و واقعی از خودم است، که دقیقاً سطح مهارت و دانش من را منعکس کند. <br />
+پروژه با صفحه‌ی ورود (Login) شروع می‌شود. خوشحال می‌شوم اگر به آن نگاهی بیندازید و سپس ادامه‌ی مسیر را همراه من باشید.
+</div></Modal.Body>
+    </Modal>
           {/* </div> */}
           <div className="container promotion-container pt-5">
             <div className="row">
@@ -257,7 +220,7 @@ const Home = () => {
         </div>
     </div>
 </div>
-         <div class="container container2 mt-5 pt-3">
+      <div class="container container2 mt-5 pt-3">
         <div class="row">
             <div class="col-md-6 mb-4 d-flex align-items-stretch">
             <div className="container">
@@ -268,13 +231,13 @@ const Home = () => {
                         <source src="path/to/video.mp4" type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>
-                    <div class="overlay">COME VISIT THE NEW BAKERY!</div>
+                    <div class="overlayhome">COME VISIT THE NEW BAKERY!</div>
                 </div>
                     </div>
                         <div className="col-md-6">
                         <div class="box position-relative">
                         <img src={img12} alt="Promotion" className="img-fluid promo-image img2nafar" />
-                        <div class="overlay">SHOP UNIQUE GIFTS & WEARABLE BAKED GOODS!</div>
+                        <div class="overlayhome">SHOP UNIQUE GIFTS & WEARABLE BAKED GOODS!</div>
                         </div>
                     </div>
                     </div>
@@ -282,7 +245,7 @@ const Home = () => {
                     <div class="col-12 d-flex align-items-stretch">
                         <div class="box position-relative position-relative1 w-100 mt-4">
                             <img src={img13} class="w-100 img-fluid promo-image johny" alt="Johnny's Journey"/>
-                            <div class="overlay">LEARN ABOUT JOHNNY'S JOURNEY FROM THE TRUNK OF HIS CAR, TO GROWING THE JOHNNY CUPCAKES T-SHIRT BRAND!</div>
+                            <div class="overlayhome">LEARN ABOUT JOHNNY'S JOURNEY FROM THE TRUNK OF HIS CAR, TO GROWING THE JOHNNY CUPCAKES T-SHIRT BRAND!</div>
                         </div>
                     </div>
                     </div>
@@ -291,7 +254,7 @@ const Home = () => {
             <div className="col-md-6">
             <div class="box position-relative position-relative2">
                     <img src={img18} alt="Promotion" className="img-fluid promo-image img-mov" />
-                    <div class="overlay">LEARN ABOUT JOHNNY'S JOURNEY FROM THE TRUNK OF HIS CAR, TO GROWING THE JOHNNY CUPCAKES T-SHIRT BRAND!</div>
+                    <div class="overlayhome">LEARN ABOUT JOHNNY'S JOURNEY FROM THE TRUNK OF HIS CAR, TO GROWING THE JOHNNY CUPCAKES T-SHIRT BRAND!</div>
                     </div>
                 </div>
         </div>
@@ -306,12 +269,14 @@ const Home = () => {
   <div className="testimonials" style={{ transform: `translateX(-${currentIndex * (100 / 4)}%)` }}>
     {testimonials.map((testimonial, index) => (
       <div key={index} className="container">
-        <div className="box imgbox ms-3">
+        <div className="box imgbox ms-3" onClick={() => handleClick(homeProducts[index])}
+            style={{ cursor: 'pointer' }}>
           <img src={testimonial.image} alt="" className="img-fluid imgcart" />
           <img src={testimonial.hoverImage} alt="" className="hover-image"/>
-          <Button className='button' variant="" onClick={handleClick}>+ Quick add</Button>
+          <Button className='buttonshopasli' variant="" 
+              onClick={(e) => handleQuickAddClick(e, homeProducts[index])}
+>+ Quick add</Button>
           </div>
-      
         <div className="text-center1">
           {testimonial.texts.map((text, i) => (
             <p key={i} className={`highlited${i}`}>{text}</p>
@@ -367,7 +332,7 @@ const Home = () => {
     <Modal show={show} onHide={handleClose}>
     <div class="modal-header"><div class="modal-title h4">Quick add</div><button type="button" class="btn-close" aria-label="Close" onClick={handleClose}></button></div>
         <Modal.Body>
-            <Modal1 isOpen={isModalOpen} onClose={() => setModalOpen(false)} product={product} />
+        {selectedProduct && <Modal1 isOpen={show} onClose={handleClose1} product={selectedProduct} />}
         </Modal.Body>
       </Modal>
     {/*  */}
